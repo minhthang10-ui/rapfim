@@ -102,15 +102,15 @@
   <!-- INFO -->
   <div class="movie-info">
     <h2>{{ movieInfo.title }}</h2>
-    <p>🎭 {{ movieInfo.genre }}</p>
-    <p>⏱ {{ movieInfo.duration }} phút</p>
-    <p>📅 {{ movieInfo.date }}</p>
-    <p>🕒 {{ movieInfo.time }}</p>
+    <p>Thể Loại: {{ movieInfo.genre }}</p>
+    <p> Thời Lượng {{ movieInfo.duration }} phút</p>
+    <p>Ngày Chiếu {{ movieInfo.date }}</p>
+    <p>Giờ Chiếu {{ movieInfo.time }}</p>
   </div>
 
   <!-- GHẾ ĐÃ CHỌN -->
   <div class="selected-seats" v-if="selectedSeats.length">
-    <h3>🎟 Ghế đã chọn</h3>
+    <h3> Ghế đã chọn</h3>
 
     <div class="seat-tags">
       <span
@@ -192,12 +192,14 @@ const seatRows = ref(
     row: String.fromCharCode(65 + r),
     seats: Array.from({ length: 12 }, (_, i) => ({
       code: `${String.fromCharCode(65 + r)}${i + 1}`,
-      type: r < 2 ? "vip" : "normal",
+      // 🔥 3 hàng đầu: thường | 5 hàng sau: VIP
+      type: r < 3 ? "normal" : "vip",
       booked: false,
       selected: false
     }))
   }))
 )
+
 
 /* ================= LOGIC ================= */
 const toggleSeat = (seat) => {

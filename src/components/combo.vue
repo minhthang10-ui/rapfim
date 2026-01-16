@@ -23,7 +23,7 @@
 
       <!-- ===== LEFT ===== -->
       <div class="combo-left">
-        <div class="combo-title">🍿 Chọn Combo</div>
+        <div class="combo-title"> Chọn Combo</div>
 
         <table class="combo-table">
           <thead>
@@ -68,11 +68,11 @@
         </div>
 
         <div class="payment-info">
-          <p>🎭 {{ movie.genre }}</p>
-          <p>⏱ {{ movie.duration }} phút</p>
-          <p>📅 {{ movie.date }}</p>
-          <p>🕒 {{ movie.time }}</p>
-          <p>🎟 Ghế: {{ movie.seats }}</p>
+          <p> Thể loại: {{ movie.genre }}</p>
+          <p> Thời lượng:{{ movie.duration }} phút</p>
+          <p> Ngày Chiếu:{{ movie.date }}</p>
+          <p> Giờ:{{ movie.time }}</p>
+          <p> Ghế: {{ movie.seats }}</p>
         </div>
 
         <div class="payment-line">
@@ -130,10 +130,10 @@ const combos = ref([
   },
   {
     id: 2,
-    name: "Combo Gia Đình",
-    desc: "2 bắp + 2 nước",
-    price: 150000,
-    image: "https://i.imgur.com/2nCt3Sbl.jpg",
+    name: "SNOOPY SPORT",
+    desc: "01 Ly nước Snoopy Sport 2025 (không kèm nước) 01 Coca-cola 32oz 01 Bắp ngọt lớn 44oz",
+    price: 249000,
+    image: new URL("../assets/68ff1e054a96c_1761549829.png", import.meta.url).href,
     qty: 0
   },
   {
@@ -141,7 +141,7 @@ const combos = ref([
     name: "Combo Couple",
     desc: "1 bắp lớn + 2 nước",
     price: 120000,
-    image: "https://i.imgur.com/l49aYS3l.jpg",
+    image :new URL("../assets/6465deb2716d7_1684397746.png", import.meta.url).href,
     qty: 0
   }
 ])
