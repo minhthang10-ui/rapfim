@@ -102,10 +102,10 @@
   <!-- INFO -->
   <div class="movie-info">
     <h2>{{ movieInfo.title }}</h2>
-    <p>Thể Loại: {{ movieInfo.genre }}</p>
-    <p> Thời Lượng {{ movieInfo.duration }} phút</p>
-    <p>Ngày Chiếu {{ movieInfo.date }}</p>
-    <p>Giờ Chiếu {{ movieInfo.time }}</p>
+    <p>Thể Loại:&nbsp; {{ movieInfo.genre }}</p>
+    <p> Thời Lượng: &nbsp; {{ movieInfo.duration }} phút</p>
+    <p>Ngày Chiếu: &nbsp; {{ movieInfo.date }}</p>
+    <p>Giờ Chiếu: &nbsp;{{ movieInfo.time }}</p>
   </div>
 
   <!-- GHẾ ĐÃ CHỌN -->

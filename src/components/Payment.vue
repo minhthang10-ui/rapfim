@@ -1,13 +1,13 @@
 <template>
   <div class="payment-page">
-    <h2>💳 Thanh toán</h2>
+    <h2> Thanh toán</h2>
 
     <div class="amount">
       Tổng tiền cần thanh toán:
       <strong>{{ total.toLocaleString() }} đ</strong>
     </div>
 <div class="payment-timer">
-  ⏳ Giữ vé: <strong>{{ formattedTime }}</strong>
+   Giữ vé: <strong>{{ formattedTime }}</strong>
 </div>
 
     <!-- QR -->

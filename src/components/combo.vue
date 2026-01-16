@@ -67,13 +67,20 @@
           <h3>{{ movie.title }}</h3>
         </div>
 
-        <div class="payment-info">
-          <p> Thể loại: {{ movie.genre }}</p>
-          <p> Thời lượng:{{ movie.duration }} phút</p>
-          <p> Ngày Chiếu:{{ movie.date }}</p>
-          <p> Giờ:{{ movie.time }}</p>
-          <p> Ghế: {{ movie.seats }}</p>
-        </div>
+       <div class="payment-info">
+  <p> Thể loại:&nbsp; {{ movie.genre }}</p>
+  <p> Thời lượng:&nbsp; {{ movie.duration }} phút</p>
+  <p> Ngày Chiếu:&nbsp; {{ movie.date }}</p>
+  <p> Giờ:&nbsp; {{ movie.time }}</p>
+
+  <div class="seat-list">
+    <strong>Ghế:</strong>
+    <div v-for="(line, i) in seatLines" :key="i">
+      {{ line }}
+    </div>
+  </div>
+</div>
+
 
         <div class="payment-line">
           <span>Tiền ghế</span>
@@ -92,7 +99,7 @@
 
         <div class="payment-actions">
           <button class="btn-back" @click="$router.back()">⬅ Quay lại</button>
-          <button class="btn-pay"@click="goPayment">💳 Thanh toán</button>
+          <button class="btn-pay"@click="goPayment"> Thanh toán</button>
         </div>
       </div>
 
@@ -116,6 +123,20 @@ const movie = ref({
   time: route.query.time || "",
   seats: route.query.seats || "",
   seatTotal: Number(route.query.seatTotal || 0)
+})
+const seatLines = computed(() => {
+  if (!movie.value.seats) return []
+
+  const seats = movie.value.seats.split(",")
+
+  const grouped = {}
+  seats.forEach(s => {
+    const row = s.charAt(0)
+    if (!grouped[row]) grouped[row] = []
+    grouped[row].push(s)
+  })
+
+  return Object.values(grouped).map(row => row.join(", "))
 })
 
 /* ================= COMBOS ================= */
@@ -355,4 +376,10 @@ const goPayment = () => {
   border: none;
   font-size: 16px;
 }
+.seat-list {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 </style>

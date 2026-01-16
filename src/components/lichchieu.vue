@@ -55,7 +55,7 @@
   <h2>{{ movie.title }}</h2>
 
   <div class="meta">
-    🎭 {{ movie.genre }} · ⏱ {{ movie.duration }} phút
+     {{ movie.genre }} · ⏱ {{ movie.duration }} phút
   </div>
 
   <h4>{{ movie.format }}</h4>
