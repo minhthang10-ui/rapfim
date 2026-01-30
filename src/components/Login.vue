@@ -10,20 +10,30 @@
       <button @click="login">Đăng nhập</button>
 
       <p class="switch" @click="$emit('close')">✕ Đóng</p>
-      
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
+
+// 🔥 BẮT BUỘC PHẢI CÓ
 const email = ref('')
 const password = ref('')
 
 const login = () => {
-  // Gắn API ở đây
-  alert(`Đăng nhập: ${email.value}`)
+  // 👉 LOGIN ADMIN
+  if (email.value === 'admin' && password.value === '123') {
+    localStorage.setItem('admin_token', 'mock-admin-token')
+    router.push('/admin')
+    return
+  }
+
+  // 👉 LOGIN USER (mock)
+  alert(`User đăng nhập: ${email.value}`)
 }
 </script>
 
@@ -35,9 +45,8 @@ const login = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* 🔥 CỰC KỲ QUAN TRỌNG */
+  z-index: 9999;
 }
-
 
 .auth-box {
   width: 360px;
@@ -47,10 +56,6 @@ const login = () => {
   backdrop-filter: blur(12px);
   box-shadow: 0 20px 40px rgba(0,0,0,.2);
   text-align: center;
-}
-
-h2 {
-  margin: 0;
 }
 
 .subtitle {
@@ -65,11 +70,6 @@ input {
   margin-bottom: 12px;
   border-radius: 12px;
   border: 1px solid #ddd;
-  outline: none;
-}
-
-input:focus {
-  border-color: #6e7cff;
 }
 
 button {
@@ -81,7 +81,6 @@ button {
   color: white;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 .switch {

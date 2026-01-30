@@ -157,7 +157,7 @@ const movieInfo = {
   date: route.query.date||"",
   time: route.query.time||""
 }
-const timeLeft = ref(300) // 5 phút = 300 giây
+const timeLeft = ref(300) 
 let timer = null
 
 const formattedTime = computed(() => {

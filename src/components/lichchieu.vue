@@ -164,10 +164,10 @@ const closeTrailer = () => {
   currentTrailer.value = ""
 }
 
-//de bt dat fim gi
 
 
-/* HEADER STATE */
+
+//
 const isDark = ref(false);
 const showLogin = ref(false);
 const showRegister = ref(false);
